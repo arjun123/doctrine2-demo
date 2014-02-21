@@ -1,5 +1,17 @@
 <?php
+defined('APPLICATION_PATH')
+    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 
+/* -- Define App Environment -- */
+if (strstr($_SERVER['SERVER_NAME'],'dev') ) {
+    define('APPLICATION_ENV', 'development');
+}
+else if (strstr($_SERVER['SERVER_NAME'],'stage')) {
+    define('APPLICATION_ENV', 'staging');
+}
+else {
+    define('APPLICATION_ENV', 'production');
+}
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
